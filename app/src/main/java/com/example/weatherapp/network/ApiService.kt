@@ -18,4 +18,5 @@ interface ApiService {
 //    @GET("cities")
 //    fun getCityFromApı(@Query("\$limit") limit: String, @Query("\$offset") offSet: String): Call<CityList>
 
+
 }
