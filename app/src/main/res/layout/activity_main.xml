@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/colorPrimary"
+        tools:context=".ui.MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/colorPrimary"
+            android:id="@+id/recyclerViewContent"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/recyclerViewContent"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/recyclerViewDate"/>
+
+    <TextView
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/sansa_light_italic"
+            android:layout_below="@+id/recyclerViewDate"
+            android:text="Today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layoutAnimation="@anim/layout_animation_left_to_right"
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/textView5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:id="@+id/recyclerViewToday"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
+
+    <TextView
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/sansa_light_italic"
+            android:layout_below="@+id/recyclerViewToday"
+            android:text="Tomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="24dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/textView9"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:id="@+id/recyclerViewTomorrow"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:layout_below="@+id/recyclerViewTomorrow"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:id="@+id/recyclerViewLocation"
+            android:layout_toStartOf="@+id/addCountryImageButton"
+            android:layout_alignParentStart="true"/>
+
+    <ImageButton
+            android:background="@drawable/ic_iconfinder_plus_325963"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/addCountryImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

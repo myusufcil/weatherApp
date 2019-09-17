@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        app:cardCornerRadius="4dp">
+
+    <RelativeLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <ImageView
+            android:background="@color/colorPrimary"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_placeholder"
+            android:id="@+id/item_content_weather_icon_image_button"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="60dp"/>
+
+        <TextView
+                android:textColor="@color/colorText"
+                android:layout_toEndOf="@+id/item_content_weather_icon_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="DATE"
+                android:layout_marginTop="16dp"
+                android:textSize="20dp"
+                android:id="@+id/item_content_date_text"
+                android:fontFamily="@font/sansa_light_italic"/>
+        <TextView
+                android:textColor="@color/colorText"
+                android:layout_below="@+id/item_content_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WEATHER FORECAST"
+                android:layout_toRightOf="@id/item_content_weather_icon_image_button"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
+                android:textSize="16dp"
+                android:id="@+id/item_content_weather_forecast_text"
+                android:fontFamily="@font/sansa_light_italic"/>
+        <TextView
+                android:textColor="@color/colorText"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="150dp"
+                android:layout_below="@+id/item_content_weather_forecast_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:textSize="52dp"
+                android:id="@+id/recyclerViewContent"
+                android:fontFamily="@font/sansa_light"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

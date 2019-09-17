@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--tema için geçeri olan renkler -->
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="colorText">#ffffff</color>
+    <color name="colorDate">#121212</color>
+    <color name="colorPlaceHolderPress">#ff8d00</color>
+    <color name="colorPlaceHolder">#ffffff</color>
+    <color name="colorImageButton">#ffffff</color>
+
+
+
+
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_marginLeft="2dp"
+              android:layout_marginRight="2dp"
+              android:background="@color/colorPrimary"
+              android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+            android:alpha="0.7"
+            app:cardBackgroundColor="@color/colorDate"
+            android:layout_marginLeft="8dp"
+            app:cardCornerRadius="4dp"
+            android:elevation="0dp"
+            android:layout_width="80dp"
+            android:layout_height="112dp">
+
+        <ImageView
+
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_height="70dp"
+                app:srcCompat="@android:drawable/btn_star_big_on"
+                android:id="@+id/item_date_spot_image_button"/>
+        <TextView
+                android:textColor="@color/colorText"
+                android:fontFamily="@font/sansa_light_italic"
+                android:id="@+id/item_date_text_date"
+                android:textSize="12dp"
+                android:text="DATE"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="92dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

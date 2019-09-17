@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="DarkThemeApp" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorError">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+</resources>
