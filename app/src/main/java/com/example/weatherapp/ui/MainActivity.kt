@@ -24,6 +24,10 @@ import kotlin.collections.ArrayList
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.BuildCompat
+import com.example.weatherapp.adapter.RecyclerViewClickListener
+import com.example.weatherapp.model.BaseModel
+import com.example.weatherapp.model.City
+import com.example.weatherapp.model.Content
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,8 +63,8 @@ class MainActivity : AppCompatActivity() {
     private val TAG: String = "MainActivity"
     private lateinit var linearLayoutManager: LinearLayoutManager
 
-    var recyclerViewItemClickListener = object : RecyclerViewClickListener {
-
+        var recyclerViewItemClickListener = object :
+            RecyclerViewClickListener {
         override fun onClickListener(position: Int, model: BaseModel) {
 
             if (model is City) {
@@ -69,9 +73,10 @@ class MainActivity : AppCompatActivity() {
                 getApiInformation(model.lat + "," + model.lon)
                 recyclerViewLocation.adapter?.notifyDataSetChanged()
             }
+
         }
         override fun onLongClickListener(position: Int, model: BaseModel) {
-            //Long Click Listener
+            //TODO Long Click Listener
         }
     }
 
@@ -94,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         if (dateHour< 7 || dateHour>= 20)
             applyTheme(DARK_MODE)
         else
-            applyTheme(LIGHT_MODE)
+            applyTheme(DARK_MODE)
 
         setContentView(R.layout.activity_main)
         getRecyclerViewAdapter()
@@ -129,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode)
         {
-            1001->{
+            1001 -> {
                 data?.let {
                     getApiInformation(data!!.getStringExtra("id"))
                 }
@@ -137,7 +142,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun applyTheme(@NonNull themePref:String){
+    private fun applyTheme(@NonNull themePref:String){
         when (themePref) {
             LIGHT_MODE -> { AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) }
             DARK_MODE -> { AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) }
@@ -261,7 +266,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun getRecyclerViewAdapter() {
+    private fun getRecyclerViewAdapter() {
         //location kısmını yatay yapıyor.
         linearLayoutManager = LinearLayoutManager(
             this@MainActivity

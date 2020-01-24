@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.adapter.AppRecyclerViewAdapter
-import com.example.weatherapp.dto.BaseModel
-import com.example.weatherapp.dto.City
-import com.example.weatherapp.dto.RecyclerViewClickListener
+import com.example.weatherapp.model.BaseModel
+import com.example.weatherapp.model.City
+import com.example.weatherapp.adapter.RecyclerViewClickListener
 import kotlinx.android.synthetic.main.country_list_activity.*
 import org.json.JSONArray
 import java.io.InputStream
@@ -25,7 +25,8 @@ class CountryListActivity : AppCompatActivity() {
     val cityList: ArrayList<BaseModel> = arrayListOf()
     private val countryAddList = mutableListOf<BaseModel>()
 
-    private var recyclerViewItemClickListener = object : RecyclerViewClickListener {
+    private var recyclerViewItemClickListener = object :
+        RecyclerViewClickListener {
 
         override fun onClickListener(position: Int, model: BaseModel) {
 
@@ -54,6 +55,7 @@ class CountryListActivity : AppCompatActivity() {
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)
         recyclerAdapters()
+
         recyclerViewCountryListRecyclerView.adapter =
             AppRecyclerViewAdapter(parseJsonStringToNewsList(), recyclerViewItemClickListener)
 

@@ -2,13 +2,12 @@ package com.example.weatherapp.ViewHolder
 
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
-import com.example.weatherapp.dto.BaseModel
-import com.example.weatherapp.dto.RecyclerViewClickListener
+import com.example.weatherapp.model.BaseModel
+import com.example.weatherapp.adapter.RecyclerViewClickListener
 import com.example.weatherapp.dto.TomorrowDTO
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,7 +18,7 @@ class TomorrowViewHolder(var view: View) : BaseViewHolder(view) {
     private val item_tomorrow_icon_image_button =   view.findViewById(R.id.item_tomorrow_icon_image_button) as ImageView
     private val item_tomorrow_temp_text         =   view.findViewById(R.id.item_tomorrow_temperature_text) as TextView
 
-    override fun bindView(baseModel: BaseModel, position: Int,clickListener: RecyclerViewClickListener) {
+    override fun bindView(baseModel: BaseModel, position: Int, clickListener: RecyclerViewClickListener) {
 
         var item = baseModel as TomorrowDTO
 

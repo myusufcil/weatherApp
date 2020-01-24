@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="horizontal"
-              android:id="@+id/rootView"
-              android:layout_width="wrap_content"
-              android:padding="8dp"
-              android:paddingTop="8dp"
-              android:paddingBottom="8dp"
-              android:paddingLeft="12dp"
-              android:paddingRight="12dp"
-              android:layout_height="wrap_content"
-              android:background="@color/colorPrimary">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:paddingLeft="12dp"
+    android:paddingTop="8dp"
+    android:paddingRight="12dp"
+    android:paddingBottom="8dp">
 
 
-        <ImageButton
-                android:background="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/item_location_imageView"
-                app:srcCompat="@drawable/ic_placeholder"/>
+    <ImageButton
+        android:paddingLeft="32dp"
+        android:id="@+id/item_location_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_placeholder" />
 
-        <TextView
-                android:textColor="@color/colorText"
-                android:text="selamlar"
-                android:fontFamily="@font/sansa_light_italic"
-                android:textSize="16dp"
-                android:layout_marginLeft="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/item_location_textview"/>
+    <TextView
+        android:id="@+id/item_location_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/sansa_light_italic"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="selamlar"
+        android:textColor="@color/colorText"
+        android:textSize="16dp" />
 
 </LinearLayout>

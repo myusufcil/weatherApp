@@ -1,11 +1,11 @@
-package com.example.weatherapp.dto
+package com.example.weatherapp.model
 
 data class City (
     var name:String?,
     var lat:String?,
     var lon:String?,
     var isSelect:Boolean= false
-):BaseModel {
+): BaseModel {
     override val type: Int
         get() = BaseModel.TYPE_ITEM_LOCATION
 }

@@ -1,5 +1,7 @@
 package com.example.weatherapp.dto
 
+import com.example.weatherapp.model.BaseModel
+
 data class TodayDTO(
     val time: Long,
     val icon: String,

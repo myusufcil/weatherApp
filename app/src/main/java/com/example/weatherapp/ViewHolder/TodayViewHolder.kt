@@ -2,13 +2,12 @@ package com.example.weatherapp.ViewHolder
 
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
-import com.example.weatherapp.dto.BaseModel
-import com.example.weatherapp.dto.RecyclerViewClickListener
+import com.example.weatherapp.model.BaseModel
+import com.example.weatherapp.adapter.RecyclerViewClickListener
 import com.example.weatherapp.dto.TodayDTO
 import java.text.SimpleDateFormat
 import java.util.*
@@ -20,7 +19,7 @@ class TodayViewHolder(var view: View) : BaseViewHolder(view) {
 
 
 
-    override fun bindView(baseModel: BaseModel, position: Int,click: RecyclerViewClickListener) {
+    override fun bindView(baseModel: BaseModel, position: Int, click: RecyclerViewClickListener) {
         var item = baseModel as TodayDTO
 
         var deneme = item.temperature

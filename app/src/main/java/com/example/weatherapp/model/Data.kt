@@ -1,4 +1,4 @@
-package com.example.weatherapp.dto
+package com.example.weatherapp.model
 
 data class Data(
      val time:Long

@@ -5,8 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.ViewHolder.*
-import com.example.weatherapp.dto.BaseModel
-import com.example.weatherapp.dto.RecyclerViewClickListener
+import com.example.weatherapp.model.BaseModel
 
 class AppRecyclerViewAdapter(
     var items: MutableList<BaseModel>,

@@ -1,4 +1,4 @@
-package com.example.weatherapp.dto
+package com.example.weatherapp.model
 
 interface BaseModel {
 
@@ -6,7 +6,6 @@ interface BaseModel {
 
     companion object
     {
-
         const val TYPE_ITEM_DATE=1
         const val TYPE_ITEM_TODAY=2
         const val TYPE_ITEM_TOMORROW=3

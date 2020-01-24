@@ -1,5 +1,6 @@
-package com.example.weatherapp.dto
+package com.example.weatherapp.model
 
+import com.example.weatherapp.model.HourlyData
 import com.google.gson.annotations.SerializedName
 
 data class Hourly(

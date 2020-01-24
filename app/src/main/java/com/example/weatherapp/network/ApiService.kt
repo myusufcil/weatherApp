@@ -1,6 +1,6 @@
 package com.example.weatherapp.network
 
-import com.example.weatherapp.dto.Content
+import com.example.weatherapp.model.Content
 import retrofit2.Call
 import retrofit2.http.*
 
