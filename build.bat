@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#!/bin/sh
 
 echo "JAVA_HOME= ${JAVA_HOME}"
 echo "ANDROID_SDK_HOME= ${ANDROID_SDK_HOME}"
