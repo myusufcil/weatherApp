@@ -7,7 +7,6 @@ echo "ANDROID_NDK_HOME= ${ANDROID_NDK_HOME}"
 
 unset ANDROID_NDK_HOME
 echo "Gradle version:"
-./gradlew -version
 
 echo "Java version:"
 java -version
