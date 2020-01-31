@@ -18,7 +18,6 @@
             android:layout_height="112dp">
 
         <ImageView
-
                 android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
                 android:layout_marginRight="4dp"
@@ -26,6 +25,7 @@
                 android:layout_height="70dp"
                 app:srcCompat="@android:drawable/btn_star_big_on"
                 android:id="@+id/item_date_spot_image_button"/>
+
         <TextView
                 android:textColor="@color/colorText"
                 android:fontFamily="@font/sansa_light_italic"

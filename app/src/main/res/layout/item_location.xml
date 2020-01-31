@@ -14,11 +14,11 @@
 
 
     <ImageButton
-        android:paddingLeft="32dp"
         android:id="@+id/item_location_imageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@color/colorPrimary"
+        android:paddingLeft="32dp"
         app:srcCompat="@drawable/ic_placeholder" />
 
     <TextView
