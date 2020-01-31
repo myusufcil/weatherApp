@@ -32,7 +32,6 @@ android {
             keyAlias "key1"
             keyPassword "123456"
         }
-
     }
 
 
