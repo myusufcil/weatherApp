@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.weatherapp.R
 import com.example.weatherapp.model.BaseModel
-import com.example.weatherapp.model.City
+import com.example.weatherapp.dto.CityDTO
 import com.example.weatherapp.adapter.RecyclerViewClickListener
 
 class CountryListViewHolder(var view:View): BaseViewHolder (view){
@@ -15,7 +15,7 @@ class CountryListViewHolder(var view:View): BaseViewHolder (view){
     private var country_add_item_location_imageView=view.findViewById<ImageView>(R.id.addCountryImageButton)
 
     override fun bindView(baseModel: BaseModel, position: Int, click: RecyclerViewClickListener) {
-        var item = baseModel as City
+        var item = baseModel as CityDTO
         country_add_item_location_text.text=item.name
 
         if (item.isSelect) {

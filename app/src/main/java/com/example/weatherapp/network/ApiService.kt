@@ -7,7 +7,7 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    //APIKEY
+    //APIKEYi
     @GET("{key}/{latlon}")
     fun getWeatherByDate(@Path("key") keyName: String, @Path("latlon") latlon: String): Call<Content>
 

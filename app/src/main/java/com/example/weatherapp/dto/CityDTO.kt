@@ -1,6 +1,8 @@
-package com.example.weatherapp.model
+package com.example.weatherapp.dto
 
-data class City (
+import com.example.weatherapp.model.BaseModel
+
+data class CityDTO (
     var name:String?,
     var lat:String?,
     var lon:String?,

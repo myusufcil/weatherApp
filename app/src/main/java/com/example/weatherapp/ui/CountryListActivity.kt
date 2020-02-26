@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.adapter.AppRecyclerViewAdapter
 import com.example.weatherapp.model.BaseModel
-import com.example.weatherapp.model.City
+import com.example.weatherapp.dto.CityDTO
 import com.example.weatherapp.adapter.RecyclerViewClickListener
 import kotlinx.android.synthetic.main.country_list_activity.*
 import org.json.JSONArray
@@ -30,7 +30,7 @@ class CountryListActivity : AppCompatActivity() {
 
         override fun onClickListener(position: Int, model: BaseModel) {
 
-            if (model is City) {
+            if (model is CityDTO) {
                 //Click Listener
                 var intent=Intent()
                 intent.putExtra("id",model.lat + "," + model.lon)
@@ -73,7 +73,7 @@ class CountryListActivity : AppCompatActivity() {
                         cityList.clear()
                         val search = p0.toString().toLowerCase()
                         cityList.forEach {
-                            val city = it as City
+                            val city = it as CityDTO
 
                             if (city.name!!.toLowerCase().contains(search))
                                 cityList.add(city)
@@ -106,7 +106,7 @@ class CountryListActivity : AppCompatActivity() {
             var coord = locationObject.getJSONObject("coord")
             var lat = coord.getString("lat")
             var lon = coord.getString("lon")
-            var city = City("", "", "")
+            var city = CityDTO("", "", "")
 
             city.lon = lon
             city.lat = lat

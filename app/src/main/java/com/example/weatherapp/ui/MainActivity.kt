@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.BuildCompat
 import com.example.weatherapp.adapter.RecyclerViewClickListener
 import com.example.weatherapp.model.BaseModel
-import com.example.weatherapp.model.City
+import com.example.weatherapp.dto.CityDTO
 import com.example.weatherapp.model.Content
 import java.text.SimpleDateFormat
 import java.util.*
@@ -63,11 +63,11 @@ class MainActivity : AppCompatActivity() {
     private val TAG: String = "MainActivity"
     private lateinit var linearLayoutManager: LinearLayoutManager
 
-        var recyclerViewItemClickListener = object :
-            RecyclerViewClickListener {
+    var recyclerViewItemClickListener = object :
+        RecyclerViewClickListener {
         override fun onClickListener(position: Int, model: BaseModel) {
 
-            if (model is City) {
+            if (model is CityDTO) {
                 //Click Listener
                 Toast.makeText(this@MainActivity, model.name, Toast.LENGTH_LONG).show()
                 getApiInformation(model.lat + "," + model.lon)
@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
         override fun onLongClickListener(position: Int, model: BaseModel) {
             //TODO Long Click Listener
         }
@@ -87,16 +88,16 @@ class MainActivity : AppCompatActivity() {
         //   2   anlık saat değerini çağırıyoruz.
 
 
-        var date=System.currentTimeMillis()
-        var formatter =  SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS")
+        var date = System.currentTimeMillis()
+        var formatter = SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS")
         var dateString = formatter.format(Date(date))
-        Log.d("SAD",dateString)
+        Log.d("SAD", dateString)
         val calendar = Calendar.getInstance()
-        calendar.time= Date(date)
-        var dateHour=calendar.get(Calendar.HOUR_OF_DAY)
+        calendar.time = Date(date)
+        var dateHour = calendar.get(Calendar.HOUR_OF_DAY)
         Log.d("asd", dateHour.toString())
 
-        if (dateHour< 7 || dateHour>= 20)
+        if (dateHour < 7 || dateHour >= 20)
             applyTheme(DARK_MODE)
         else
             applyTheme(DARK_MODE)
@@ -122,18 +123,16 @@ class MainActivity : AppCompatActivity() {
         recyclerViewToday.scheduleLayoutAnimation()
     }
 
-    fun countryAddImageButton()
-    {
+    fun countryAddImageButton() {
         addCountryImageButton.setOnClickListener {
-            val intent = Intent(this,CountryListActivity::class.java)
-            startActivityForResult(intent ,1001)
+            val intent = Intent(this, CountryListActivity::class.java)
+            startActivityForResult(intent, 1001)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when(requestCode)
-        {
+        when (requestCode) {
             1001 -> {
                 data?.let {
                     getApiInformation(data!!.getStringExtra("id"))
@@ -142,10 +141,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun applyTheme(@NonNull themePref:String){
+    private fun applyTheme(@NonNull themePref: String) {
         when (themePref) {
-            LIGHT_MODE -> { AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) }
-            DARK_MODE -> { AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) }
+            LIGHT_MODE -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            DARK_MODE -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
             else -> {
                 if (BuildCompat.isAtLeastQ()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
@@ -168,7 +171,7 @@ class MainActivity : AppCompatActivity() {
             var coord = locationObject.getJSONObject("coord")
             var lat = coord.getString("lat")
             var lon = coord.getString("lon")
-            var city = City("", "", "")
+            var city = CityDTO("", "", "")
 
             city.lon = lon
             city.lat = lat
@@ -190,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         }
         return inputString
     }
-
+//aksdj
     fun getApiInformation(latlon: String) {
         val apiService =
             RetrofitFactory.create().getWeatherByDate(appID, latlon)   //QUERYleri girdiğimiz yer.
@@ -201,7 +204,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<Content>, response: Response<Content>) {
-                response.body()?.let { contentArea ->
+                response.body()?.let { contentArea  ->
 
                     historyMainList.clear()
                     todayMainList.clear()
@@ -250,16 +253,17 @@ class MainActivity : AppCompatActivity() {
                     recyclerViewTodayAdapter.notifyDataSetChanged()
 
                     var tomorrowCounter = 0
-                    contentArea.hourly.hourlyData.takeLast(24).forEach { contentTomorrowHourlyData ->
-                        var TomorrowObje =
-                            TomorrowDTO(
-                                contentArea.hourly.hourlyData[tomorrowCounter].time,
-                                contentArea.hourly.hourlyData[tomorrowCounter].icon,
-                                contentArea.hourly.hourlyData[tomorrowCounter].temperature
-                            )
-                        tomorrowCounter++
-                        tomorrowMainList.add(TomorrowObje)
-                    }
+                    contentArea.hourly.hourlyData.takeLast(24)
+                        .forEach { contentTomorrowHourlyData ->
+                            var TomorrowObje =
+                                TomorrowDTO(
+                                    contentArea.hourly.hourlyData[tomorrowCounter].time,
+                                    contentArea.hourly.hourlyData[tomorrowCounter].icon,
+                                    contentArea.hourly.hourlyData[tomorrowCounter].temperature
+                                )
+                            tomorrowCounter++
+                            tomorrowMainList.add(TomorrowObje)
+                        }
                     recyclerviewTomorrowAdapter.notifyDataSetChanged()
                 }
             }
@@ -276,7 +280,8 @@ class MainActivity : AppCompatActivity() {
 
         //IconAndHistoryrecyclerview
         recyclerViewIconAndHistory = findViewById(R.id.recyclerViewDate)
-        recyclerAdapterIconAndHistory = AppRecyclerViewAdapter(historyMainList, recyclerViewItemClickListener)
+        recyclerAdapterIconAndHistory =
+            AppRecyclerViewAdapter(historyMainList, recyclerViewItemClickListener)
         recyclerViewIconAndHistory.layoutManager = LinearLayoutManager(
             this@MainActivity
             , LinearLayoutManager.HORIZONTAL
@@ -286,7 +291,8 @@ class MainActivity : AppCompatActivity() {
 
         //recyclerviewToday
         recyclerViewToday = findViewById(R.id.recyclerViewToday)
-        recyclerViewTodayAdapter = AppRecyclerViewAdapter(todayMainList, recyclerViewItemClickListener)
+        recyclerViewTodayAdapter =
+            AppRecyclerViewAdapter(todayMainList, recyclerViewItemClickListener)
         recyclerViewToday.layoutManager = LinearLayoutManager(
             this@MainActivity
             , LinearLayoutManager.HORIZONTAL
@@ -296,7 +302,8 @@ class MainActivity : AppCompatActivity() {
 
         //recyclerviewTomorrow
         recyclerviewTomorrow = findViewById(R.id.recyclerViewTomorrow)
-        recyclerviewTomorrowAdapter = AppRecyclerViewAdapter(tomorrowMainList, recyclerViewItemClickListener)
+        recyclerviewTomorrowAdapter =
+            AppRecyclerViewAdapter(tomorrowMainList, recyclerViewItemClickListener)
         recyclerviewTomorrow.layoutManager = LinearLayoutManager(
             this@MainActivity
             , LinearLayoutManager.HORIZONTAL
@@ -306,7 +313,8 @@ class MainActivity : AppCompatActivity() {
 
         //recyclerviewContent
         recyclerViewContent = findViewById(R.id.recyclerViewContent)
-        recyclerViewContentAdapter = AppRecyclerViewAdapter(contentMainList, recyclerViewItemClickListener)
+        recyclerViewContentAdapter =
+            AppRecyclerViewAdapter(contentMainList, recyclerViewItemClickListener)
         recyclerViewContent.layoutManager = LinearLayoutManager(this@MainActivity)
         recyclerViewContent.adapter = recyclerViewContentAdapter
     }

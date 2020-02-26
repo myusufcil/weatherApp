@@ -9,7 +9,6 @@ class RetrofitCityFactory {
     companion object{
         var BASE_URL="https://wft-geo-db.p.rapidapi.com/v1/geo/"
         fun create(): ApiService {
-
             //Logda gelen bilgilerin gösterilmesini sağlıyor.
             val logging = HttpLoggingInterceptor()
             logging.apply { logging.level = HttpLoggingInterceptor.Level.BODY }

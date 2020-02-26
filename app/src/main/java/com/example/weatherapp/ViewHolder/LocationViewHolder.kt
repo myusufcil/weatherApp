@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.weatherapp.R
 import com.example.weatherapp.model.BaseModel
-import com.example.weatherapp.model.City
+import com.example.weatherapp.dto.CityDTO
 import com.example.weatherapp.adapter.RecyclerViewClickListener
 
 class LocationViewHolder(var view: View):BaseViewHolder(view) {
@@ -21,7 +21,7 @@ class LocationViewHolder(var view: View):BaseViewHolder(view) {
 
     override fun bindView(baseModel: BaseModel, position: Int, click: RecyclerViewClickListener)
     {
-        var item = baseModel as City
+        var item = baseModel as CityDTO
         item_location_textView.text=item.name
 
         rootView.setOnClickListener{
