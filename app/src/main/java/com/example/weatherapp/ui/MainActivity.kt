@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         }
         return inputString
     }
-//aksdasdsadsad
+
     fun getApiInformation(latlon: String) {
         val apiService =
             RetrofitFactory.create().getWeatherByDate(appID, latlon)   //QUERYleri girdiğimiz yer.
