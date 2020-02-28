@@ -1,31 +1,44 @@
 pipeline {
   agent any
   stages {
-    stage('Initialize') {
-      agent {
-        docker {
-          args '-v/Users/bitwiseman/.m2:/root/.m2'
-          image 'maven:3.3.9-jdk-8'
+    stage('Build') {
+      steps {
+        sh 'echo build'
+      }
+    }
+
+    stage('Backend') {
+      parallel {
+        stage('Unit') {
+          steps {
+            sh 'echo unit'
+          }
+        }
+
+        stage('Performance') {
+          steps {
+            sh 'echo Performance'
+          }
         }
 
       }
+    }
+
+    stage('Frontend') {
       steps {
-        sh '''echo PATH = ${PATH}
-echo M2_HOME = ${M2_HOME}
-mvn clean'''
+        sh 'echo Frontend'
       }
     }
 
-    stage('Build') {
+    stage('Static Analysis') {
       steps {
-        sh 'mvn -Dmaven.test.failure.ignore = true install'
+        sh 'echo static'
       }
     }
 
-    stage('Report') {
+    stage('Deoploy') {
       steps {
-        junit 'target/surefire-reports/**/*.xml'
-        archiveArtifacts 'target/*.jar.target/*.hpi'
+        sh 'echo Deploy'
       }
     }
 
