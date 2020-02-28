@@ -1,10 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      agent any
+    stage('Initialize') {
       steps {
-        sh 'npm install'
+        echo 'This is a minimal pipeline'
       }
     }
 
