@@ -2,9 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
       steps {
         sh './gradlew compileDebugSources'
-      }
     }
     stage('Unit test') {
       steps {
