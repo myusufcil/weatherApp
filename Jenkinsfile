@@ -4,8 +4,9 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        sh 'gradlew compileDebugSources'
+        sh 'build.bat'
       }
     }
+
   }
 }
