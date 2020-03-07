@@ -7,4 +7,8 @@ echo "ANDROID_NDK_HOME= ${ANDROID_NDK_HOME}"
 
 unset ANDROID_NDK_HOME
 echo "Gradle version:"
-gradlew assembleRelease
+gradlew -version
+
+
+chmod +x gradlew
+gradlew assembleDebug
