@@ -1,11 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      agent any
+    stage('Test') {
       steps {
-        sh './build.bat'
+        sh './gradlew check'
       }
+    }
+
+  }
+  post {
+    always {
+      junit 'build/reports/**/*.xml'
     }
 
   }
