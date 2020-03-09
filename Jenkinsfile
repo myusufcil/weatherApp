@@ -3,14 +3,21 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'tebrikler'
-        sh 'gradlew build.bat'
+        echo 'BuildStarted'
+        sh 'gradlew build'
+        echo 'BuildFinished'
       }
     }
 
     stage('Test') {
       steps {
-        echo 'test'
+        echo 'testStarted'
+      }
+    }
+
+    stage('deploy') {
+      steps {
+        echo 'deploymaster'
       }
     }
 
