@@ -3,8 +3,19 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Jenkins Minute Pipeline'
-        sh 'echo \'build\''
+        echo 'BuildStarted'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        echo 'TestStarted'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'deploy'
       }
     }
 
