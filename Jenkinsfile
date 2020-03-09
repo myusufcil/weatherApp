@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'tebrikler'
-        sh 'gradlew build'
+        sh 'gradlew build.bat'
       }
     }
 
