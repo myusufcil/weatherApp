@@ -4,7 +4,6 @@ pipeline {
     stage('Build') {
       steps {
         echo 'BuildStarted'
-        sh 'gradlew build'
         echo 'BuildFinished'
       }
     }
